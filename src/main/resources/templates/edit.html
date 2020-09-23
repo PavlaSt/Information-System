@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="@{'/css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="@{'/images/favicon.png'}"/>
+    <title>Information system</title>
+</head>
+<body>
+    <div class="page">
+
+        <h1>Detail kontaktu</h1>
+
+        <form method="post">
+            <table>
+                <tr>
+                    <th>
+                        Jméno: 
+                    </th>
+                    <td>
+                        <input type="text" name="name" value="Jana Nová"
+                        th:value="${contact.name}"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>
+                        Telefon:
+                    </th>
+                    <td>
+                        <input type="text" name="phone" value="+420 608 704 111"
+                        th:value="${contact.phone}"/>
+
+                    </td>
+                </tr>
+           
+                <tr>
+                    <th>
+                        Email:
+                    </th>
+                    <td>
+                        <input type="text" name="email" value="Jana.Nova@seznam.cz"
+                        th:value="${contact.email}"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        
+                        <input type="submit" value="Uložit" class="button">
+                        <a href="index.html" th:href="@{'/contacts'}"  class="button">Zpět</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

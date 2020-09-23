@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="@{'/css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="@{'/images/favicon.png'}"/>
+    <title>Information system</title>
+</head>
+<body>
+    <div class="page">
+
+        <h1>Information system</h1>
+
+        <table>
+            <tr>
+                <th>Číslo</th>
+                <th>Jméno</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th colspan="2">Akce</th>
+            </tr>
+            <tr th:each="contact: ${contacts}">
+                <td th:text="${contact.number}">100</td>
+                <td th:text="${contact.name}">Marie Curie Sklodowska</td>
+                <td th:text="${contact.phone}">+440 123 456 789</td>
+                <td th:text="${contact.email}">marie@sorbona.fr</td>
+                <td>
+                    <a  th:href="@{'/edit/' + ${contact.number}}"
+                        href="edit.html" class="button">Edit</a>
+                </td>
+                <td>
+                    <form th:action="@{'/contacts/' + ${contact.number}}" method="post" >
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Smazat" class="button">
+                    </form>
+
+                </td>
+            </tr>
+
+            <tr th:remove="all">
+                <td>101</td>
+                <td>František Palacký</td>
+                <td>+ 420 201 101 356</td>
+                <td>palacky@ceska-rec.cz</td>
+                <td>
+                    <a href="edit.html"
+                       th:href="'/edit'"
+                       class="button">Edit</a>
+
+                </td>
+                <td>
+                    <input type="submit" value="Smazat" class="button">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <a th:href="@{'/new'}" href="edit.html" class="button">Přidat nový kontakt</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
