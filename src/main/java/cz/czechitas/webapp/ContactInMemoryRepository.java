@@ -6,7 +6,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.server.*;
 
-@Repository
+//@Repository
 
 public class ContactInMemoryRepository implements InterfaceRepository {
 
