@@ -3,10 +3,10 @@ package cz.czechitas.webapp;
 public class Contact {
 
 
-    private Long number ; //    Číslo
-    private String name; //    Jméno
-    private String phone; //    Telefon
-    private String email; //    Email
+    private Long id;
+    private String name;
+    private String phone;
+    private String email;
 
     public Contact() {
     }
@@ -17,18 +17,20 @@ public class Contact {
         this.email = email;
     }
 
-    public Contact(Long number, String name, String phone, String email) {
-        this.number = number;
+    public Contact(Long id, String name, String phone, String email) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
     }
 
-    public Long getNumber() {
-        return number;
+    public Long getId() {
+        return id;
     }
 
-
+    public void setId(Long newValue) {
+        id = newValue;
+    }
 
     public String getName() {
         return name;

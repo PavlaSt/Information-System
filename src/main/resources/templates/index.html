@@ -24,16 +24,16 @@
                 <th colspan="2">Akce</th>
             </tr>
             <tr th:each="contact: ${contacts}">
-                <td th:text="${contact.number}">100</td>
+                <td th:text="${contact.id}">100</td>
                 <td th:text="${contact.name}">Marie Curie Sklodowska</td>
                 <td th:text="${contact.phone}">+440 123 456 789</td>
                 <td th:text="${contact.email}">marie@sorbona.fr</td>
                 <td>
-                    <a  th:href="@{'/edit/' + ${contact.number}}"
+                    <a  th:href="@{'/edit/' + ${contact.id}}"
                         href="edit.html" class="button">Edit</a>
                 </td>
                 <td>
-                    <form th:action="@{'/contacts/' + ${contact.number}}" method="post" >
+                    <form th:action="@{'/contacts/' + ${contact.id}}" method="post" >
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="submit" value="Smazat" class="button">
                     </form>
